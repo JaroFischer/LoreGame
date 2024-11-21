@@ -7,6 +7,9 @@
 #include "LorePlayerController.generated.h"
 
 class UInputMappingContext;
+class UInputAction;
+struct FInputActionValue;
+
 
 /**
  * 
@@ -19,8 +22,18 @@ public:
 	ALorePlayerController();
 protected:
 	virtual void BeginPlay() override;
-	
+	virtual void SetupInputComponent() override;
 private:
 	UPROPERTY(EditAnywhere, category = "Input")
 	TObjectPtr<UInputMappingContext> LoreContext;
+
+	UPROPERTY(EditAnywhere, category = "Input")
+	TObjectPtr<UInputAction> MoveAction;
+
+	UPROPERTY(EditAnywhere, category = "Input")
+	TObjectPtr<UInputAction> LookAction;
+
+	void Move(const FInputActionValue& InputActionValue);
+
+	void Look(const FInputActionValue& InputActionValue);
 };

@@ -13,5 +13,6 @@ UCLASS()
 class LORE_API ALoreCharacter : public ALoreCharacterBase
 {
 	GENERATED_BODY()
-	
+public:
+		ALoreCharacter();
 };
